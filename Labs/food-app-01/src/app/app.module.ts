@@ -9,6 +9,9 @@ import { HomeComponent } from "./home/home.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 import { AboutComponent } from './about/about.component';
+import { FoodContainerComponent } from './food/food-container/food-container.component';
+import { FoodListComponent } from './food/food-list/food-list.component';
+import { FoodEditComponent } from './food/food-edit/food-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { AboutComponent } from './about/about.component';
     SidemenuComponent,
     HomeComponent,
     AboutComponent,
+    FoodContainerComponent,
+    FoodListComponent,
+    FoodEditComponent,
   ],
   imports: [
     BrowserModule,
