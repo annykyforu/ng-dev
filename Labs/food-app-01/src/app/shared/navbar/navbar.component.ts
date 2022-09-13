@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NavbarService } from "./navbar.service";
 import { NavItem } from "./nav-item.model";
+import { Route, Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar",
@@ -10,6 +11,7 @@ import { NavItem } from "./nav-item.model";
 export class NavbarComponent implements OnInit {
   constructor(private ns: NavbarService) {}
 
+  rootRoutes!: Route[];
   navItems: NavItem[] = [];
 
   ngOnInit() {

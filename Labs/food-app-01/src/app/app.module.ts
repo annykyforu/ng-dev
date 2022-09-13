@@ -8,6 +8,7 @@ import { SidemenuComponent } from "./shared/sidemenu/sidemenu.component";
 import { HomeComponent } from "./home/home.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from "@angular/common/http";
     NavbarComponent,
     SidemenuComponent,
     HomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
