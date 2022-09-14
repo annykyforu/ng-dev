@@ -1,7 +1,25 @@
 <mat-card class="mat-elevation-z8">
-    <mat-card-title>
-        Edit Food Item (ID #)
-    </mat-card-title>
+    <mat-card-header>
+        <mat-card-title>
+            Edit Food Item (ID #)
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field appearance="standard">
+            <mat-label>Name of the food item</mat-label>
+            <input matInput placeholder="Name" type="text" [(ngModel)]="foodItem.name">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>Calories of the food item</mat-label>
+            <input matInput placeholder="Calories">
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Price of the food item</mat-label>
+            <input matInput placeholder="Price">
+        </mat-form-field>
+
+    </mat-card-content>
 </mat-card>
 
 <!-- <div class="input">
