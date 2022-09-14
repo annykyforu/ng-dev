@@ -1,13 +1,32 @@
-<div>
-  <div class="navbar">
+<!-- <div gdAuto>
+  <div>
     <app-navbar></app-navbar>
   </div>
-  <div class="mainrow">
+  <div fxLayout>
     <div class="sidebar">
       <app-sidemenu></app-sidemenu>
     </div>
     <div class="main">
       <router-outlet></router-outlet>
     </div>
+  </div>
+</div> -->
+
+<div
+  gdAreas="navbar | sidemenu | main"
+  gdGap="10px"
+  gdRows="70px auto"
+  gdColumns="auto"
+  gdColumns.lt-md="100%"
+  class="grid"
+>
+  <div gdArea="navbar">
+    <app-navbar></app-navbar>
+  </div>
+  <!-- <div gdArea="sidemenu">
+    <app-sidemenu></app-sidemenu>
+  </div> -->
+  <div gdArea="main">
+    <router-outlet></router-outlet>
   </div>
 </div>
