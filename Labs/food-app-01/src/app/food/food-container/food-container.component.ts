@@ -36,9 +36,9 @@ export class FoodContainerComponent implements OnInit {
     console.log('Food Items array after save', this.foodItems);
   }
 
-  deleteFoodItem(id: number) { 
-    this.fs.deleteFoodItem(id).subscribe(() => {
-      let deleted = this.foodItems.filter((item) => item.id != id);
+  deleteFoodItem(fi: FoodItem) { 
+    this.fs.deleteFoodItem(fi.id).subscribe(() => {
+      let deleted = this.foodItems.filter((item) => item.id != fi.id);
       this.foodItems = [...deleted];
       this.selected = null;
     });

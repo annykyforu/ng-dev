@@ -19,8 +19,8 @@ export class FoodListComponent implements OnInit, OnChanges {
   constructor() { }
 
   @Input() foodItems: FoodItem[] = [];
-  @Output() foodItemSelected = new EventEmitter<FoodItem>();
-  @Output() foodItemDeleted = new EventEmitter<FoodItem>();
+  @Output() foodItemSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() foodItemDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
 
   displayedColumns: string[] = [
@@ -47,7 +47,7 @@ export class FoodListComponent implements OnInit, OnChanges {
   }
 
   deleteFoodItem(fi: FoodItem) {
-    // this.deleteFoodItem.emit(fi);
+    this.foodItemDeleted.emit(fi);
   }
 
 }
