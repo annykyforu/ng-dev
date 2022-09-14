@@ -37,7 +37,7 @@ export class FoodListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['foodItems']) {
-      console.log("There are some changes in Food Items:", changes['foodItems'].currentValue);
+      console.log("There are some changes in Food Items List:", changes['foodItems'].currentValue);
     }
     this.dataSource = new MatTableDataSource(changes["foodItems"].currentValue);
   }

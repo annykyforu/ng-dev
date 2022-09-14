@@ -1,3 +1,21 @@
 table {
   width: 100%;
 }
+
+mat-card {
+  margin-bottom: 1rem;
+}
+
+mat-card-title {
+  margin-bottom: 1rem;
+}
+
+mat-icon {
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.icon-cell{
+  width: 60px;
+  text-align: right;
+}
