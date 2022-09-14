@@ -1,1 +1,11 @@
-<p>food-container works!</p>
+<app-food-list
+    [foodItems]=foodItems
+    (foodItemSelected)="onFoodItemSelected($event)"
+></app-food-list>
+
+<app-food-edit
+    *ngIf="current"
+    [foodItem]="current"
+    [editMode]="true"
+    (saveFoodItem)="onFoodItemSaved($event)"
+></app-food-edit>

@@ -1,1 +1,24 @@
-<p>food-list works!</p>
+<div class="title">
+  List of Food Items
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th class="align-left">ID</th>
+      <th class="align-left">Name</th>
+      <th class="align-left">Price</th>
+      <th class="align-left">Calories</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fi of foodItems">
+      <td>{{ fi.id }}</td>
+      <td>{{ fi.name }}</td>
+      <td>{{ fi.price }}</td>
+      <td>{{ fi.calories }}</td>
+      <td class="align-right"><a (click)="selectFoodItem(fi)">Select</a></td>
+    </tr>
+  </tbody>
+</table>
