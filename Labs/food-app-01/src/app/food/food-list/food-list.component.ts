@@ -4,8 +4,10 @@ import {
   Input,
   Output,
   EventEmitter,
-  SimpleChanges
+  SimpleChanges,
+  OnChanges
 } from '@angular/core';
+import { MatTableDataSource } from "@angular/material/table";
 import { FoodItem } from '../food.model';
 
 @Component({
@@ -18,6 +20,16 @@ export class FoodListComponent implements OnInit {
 
   @Input() foodItems: FoodItem[] = [];
   @Output() foodItemSelected = new EventEmitter<FoodItem>();
+
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'price',
+    'calories',
+    'deleteFoodItem',
+    'editFoodItem'
+  ];
+  dataSource = new MatTableDataSource([]);
 
   ngOnInit() { }
 

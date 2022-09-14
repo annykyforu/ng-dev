@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayoutGap="1rem">
-    <div *ngFor="let item of navItems"
-        routerLink="{{ '/' + item.url }}"
+    <div class="navItem"
+        *ngFor="let item of navItems"
+        [routerLink]="[item.url]"
         routerLinkActive="navLinkActive"
         [routerLinkActiveOptions]="{ exact: true }"
         class="navLink"

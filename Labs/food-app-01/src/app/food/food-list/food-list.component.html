@@ -1,24 +1,51 @@
-<div class="title">
-  List of Food Items
-</div>
+<mat-card class="mat-elevationz8">
+  <mat-card-title>
+    List of Food Items
+  </mat-card-title>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th class="align-left">ID</th>
-      <th class="align-left">Name</th>
-      <th class="align-left">Price</th>
-      <th class="align-left">Calories</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let fi of foodItems">
-      <td>{{ fi.id }}</td>
-      <td>{{ fi.name }}</td>
-      <td>{{ fi.price }}</td>
-      <td>{{ fi.calories }}</td>
-      <td class="align-right"><a (click)="selectFoodItem(fi)">Select</a></td>
-    </tr>
-  </tbody>
-</table>
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element"> {{ element.name }}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element"> {{ element.price }}</td>
+    </ng-container>
+    
+    <!-- Calories Column -->
+    <ng-container matColumnDef="calories">
+      <th mat-header-cell *matHeaderCellDef>Calories</th>
+      <td mat-cell *matCellDef="let element"> {{ element.calories }}</td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="deleteFoodItem">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        delete
+      </td>
+    </ng-container>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="editFoodItem">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        edit
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
