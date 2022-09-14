@@ -8,22 +8,24 @@ import { FoodService } from '../food.service';
   styleUrls: ['./food-container.component.scss']
 })
 export class FoodContainerComponent implements OnInit {
+  foodItems: FoodItem[] = [];
+  selected: FoodItem | null = null;
+
   constructor(private fs: FoodService) { }
 
-  foodItems: FoodItem[] = [];
-  current: FoodItem | null = null;
-
   ngOnInit() {
-    this.fs.getFoodItems().subscribe((data) => {
-      this.foodItems = data;
-    });
+    this.fs.getFoodItems().subscribe((data) => this.foodItems = data);
   }
 
-  onFoodItemSelected(fi: FoodItem) {
-    this.current = {...fi};
+  addFoodItem(fi: FoodItem) {
+    this.selected = fi;
   }
 
-  onFoodItemSaved(fi: FoodItem){
+  selectFoodItem(fi: FoodItem) {
+    this.selected = { ...fi };
+  }
+
+  saveFoodItem(fi: FoodItem) {
     console.log('saving to service:', fi);
     const exists: FoodItem | undefined = this.foodItems.find((i) => i.id == fi.id);
     if (exists) {
@@ -32,5 +34,13 @@ export class FoodContainerComponent implements OnInit {
       this.foodItems.push(fi);
     }
     console.log('Food Items array after save', this.foodItems);
+  }
+
+  deleteFoodItem(id: number) { 
+    this.fs.deleteFoodItem(id).subscribe(() => {
+      let deleted = this.foodItems.filter((item) => item.id != id);
+      this.foodItems = [...deleted];
+      this.selected = null;
+    });
   }
 }

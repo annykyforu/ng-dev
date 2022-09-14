@@ -43,4 +43,12 @@ export class FoodListComponent implements OnInit {
     this.foodItemSelected.emit(fi);
   }
 
+  editFoodItem(fi: FoodItem) {
+    
+  }
+
+  deleteFoodItem(fi: FoodItem) {
+    
+  }
+
 }
