@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { MatDrawerMode } from '@angular/material/sidenav';
 import { MediaChange, MediaObserver } from "@angular/flex-layout";
-import { BehaviorSubject, Observable, of } from "rxjs";
+import { MatDrawerMode } from '@angular/material/sidenav';
+import { BehaviorSubject } from "rxjs";
 import { filter, map } from "rxjs/operators";
 
 @Injectable({
@@ -12,24 +12,24 @@ export class MenuService {
         this.handleChange();
     }
 
-    visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-    position$: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('over');
+    sideNavVisibility: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+    sideNavPosition: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
 
     private handleChange() {
-    //     this.mediaObserver
-    //         .asObservable
-    //         .pipe(
-    //             filter((changes: MediaChange[]) => changes.length > 0),
-    //             map((changes: MediaChange[]) => changes[0])
-    //         )
-    //         .subscribe((change) => {
-    //             this.visible$.next(change.mqAlias == 'xs' ? false : true);
-    //             this.position$.next(change.mqAlias == 'xs' ? 'over' : 'side');
-    //         })
+        this.mediaObserver
+            .asObservable()
+            .pipe(
+                filter((changes: MediaChange[]) => changes.length > 0),
+                map((changes: MediaChange[]) => changes[0])
+            )
+            .subscribe((change) => {
+                this.sideNavVisibility.next(change.mqAlias === 'md' ? false : true);
+                this.sideNavPosition.next(change.mqAlias === 'md' ? 'over' : 'side');
+            })
     }
 
     toggleMenuVisibility() {
-        let nextVal = !this.visible$.value;
-        this.visible$.next(nextVal);
+        const visibility = !this.sideNavVisibility.value;
+        this.sideNavVisibility.next(visibility);
     }
 }
