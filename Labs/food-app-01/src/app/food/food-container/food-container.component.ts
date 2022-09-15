@@ -33,6 +33,7 @@ export class FoodContainerComponent implements OnInit {
     } else {
       this.foodItems.push(fi);
     }
+    this.selected = null;
     console.log('Food Items array after save', this.foodItems);
   }
 
