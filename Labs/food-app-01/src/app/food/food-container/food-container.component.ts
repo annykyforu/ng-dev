@@ -41,14 +41,6 @@ export class FoodContainerComponent implements OnInit {
         this.foodItems = [...this.foodItems];
       });
     }
-
-    
-    // const exists: FoodItem | undefined = this.foodItems.find((i) => i.id == fi.id);
-    // if (exists) {
-    //   Object.assign(exists, fi);
-    // } else {
-    //   this.foodItems.push(fi);
-    // }
     this.selected = null;
     console.log('Food Items array after save', this.foodItems);
   }
