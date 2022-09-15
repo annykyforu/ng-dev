@@ -27,12 +27,28 @@ export class FoodContainerComponent implements OnInit {
 
   saveFoodItem(fi: FoodItem) {
     console.log('saving to service:', fi);
-    const exists: FoodItem | undefined = this.foodItems.find((i) => i.id == fi.id);
-    if (exists) {
-      Object.assign(exists, fi);
+    if(fi.id) {
+      this.fs.editFoodItem(fi).subscribe((result) => {
+        let existing = this.foodItems.find((fi => fi.id == result.id));
+        if(existing) {
+          Object.assign(existing, result);
+          this.foodItems = [...this.foodItems];
+        }
+      });
     } else {
-      this.foodItems.push(fi);
+      this.fs.addFoodItem(fi).subscribe((result) => {
+        this.foodItems.push(result);
+        this.foodItems = [...this.foodItems];
+      });
     }
+
+    
+    // const exists: FoodItem | undefined = this.foodItems.find((i) => i.id == fi.id);
+    // if (exists) {
+    //   Object.assign(exists, fi);
+    // } else {
+    //   this.foodItems.push(fi);
+    // }
     this.selected = null;
     console.log('Food Items array after save', this.foodItems);
   }
