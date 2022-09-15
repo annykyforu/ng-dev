@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayoutGap="1rem">
+    <div fxHide fxShow.lt-md (click)="toggleMenu()" class="menu">
+      <mat-icon>menu</mat-icon>
+    </div>
+
     <div class="navItem"
         *ngFor="let item of navItems"
         [routerLink]="[item.url]"
