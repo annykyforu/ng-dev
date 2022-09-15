@@ -20,10 +20,8 @@ export class FoodListComponent implements OnInit, OnChanges {
 
   @Input() food: FoodItem[] = [];
   @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodAdding: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() foodAdding: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
   displayedColumns: string[] = [
     "id",
