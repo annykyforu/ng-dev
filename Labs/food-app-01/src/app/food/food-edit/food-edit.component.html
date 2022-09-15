@@ -7,26 +7,32 @@
     <mat-card-content>
         <mat-form-field appearance="standard">
             <mat-label>Name of the food item</mat-label>
-            <input matInput placeholder="Name" type="text" [(ngModel)]="foodItem.name">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-            <mat-label>Calories of the food item</mat-label>
-            <input matInput placeholder="Calories">
+            <input matInput
+                type="text"
+                placeholder="Name"
+                [(ngModel)]="foodItem.name"
+                [disabled]="!editMode"
+            />
         </mat-form-field>
 
         <mat-form-field appearance="standard">
             <mat-label>Price of the food item</mat-label>
-            <input matInput placeholder="Price">
+            <input matInput
+                type="number"
+                placeholder="Price"
+                [(ngModel)]="foodItem.price"
+                [disabled]="!editMode"
+            />
         </mat-form-field>
-
+        
+        <mat-form-field appearance="standard">
+            <mat-label>Calories of the food item</mat-label>
+            <input matInput
+                type="number"
+                placeholder="Calories"
+                [(ngModel)]="foodItem.calories"
+                [disabled]="!editMode"
+            />
+        </mat-form-field>
     </mat-card-content>
 </mat-card>
-
-<!-- <div class="input">
-    <input
-    type="text"
-    placeholder="Enter new name"
-    [(ngModel)]="foodItem.name"
-    [disabled]="!editMode"
-    />
-</div> -->
