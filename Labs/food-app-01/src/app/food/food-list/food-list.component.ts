@@ -21,6 +21,7 @@ export class FoodListComponent implements OnInit, OnChanges {
   @Input() foodItems: FoodItem[] = [];
   @Output() foodItemSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output() foodItemDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() foodItemAdded: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
 
   displayedColumns: string[] = [
@@ -50,4 +51,7 @@ export class FoodListComponent implements OnInit, OnChanges {
     this.foodItemDeleted.emit(fi);
   }
 
+  addFoodItem() {
+    this.foodItemAdded.emit(new FoodItem());
+  }
 }

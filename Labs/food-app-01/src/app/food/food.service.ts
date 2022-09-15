@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
 
 import { FoodItem } from './food.model';
 
@@ -21,11 +20,11 @@ export class FoodService {
   }
 
   editFoodItem(fi: FoodItem) {
-    return this.httpClient.put<FoodItem>('${this.url}/${fi.id}', fi);
+    return this.httpClient.put<FoodItem>(`${this.url}/${fi.id}`, fi);
   }
 
   deleteFoodItem(id: number) {
-    return this.httpClient.delete<FoodItem>('${this.url}/${id}');
+    return this.httpClient.delete<FoodItem>(`${this.url}/${id}`);
   }
 
 }

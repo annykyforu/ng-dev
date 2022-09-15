@@ -7,7 +7,10 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "food", component: FoodContainerComponent },
+  // { path: "food", component: FoodContainerComponent },
+  { path: "food",
+    loadChildren: () => import("./food/food.module").then((m) => m.FoodModule),
+  },
   { path: "about", component: AboutComponent }
 ];
 
