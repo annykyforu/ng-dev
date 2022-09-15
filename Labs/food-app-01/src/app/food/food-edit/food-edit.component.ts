@@ -32,6 +32,7 @@ export class FoodEditComponent implements OnInit, OnChanges {
   }
 
   doSave() {
+    console.log("Saved Food Item", this.foodItem);
     this.saveFoodItem.emit(this.foodItem);
   }
 }
