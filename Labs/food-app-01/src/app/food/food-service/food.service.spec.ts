@@ -50,4 +50,42 @@ describe('FoodService - HttpTestingController', () => {
     req.flush(foodLoadData);
   });
 
+  it('should add new Food Item', () => {
+    service.addFoodItem(foodAddItem as FoodItem).subscribe((f) => {
+      expect(f).toBeTruthy();
+    });
+
+    // test whether the correct url has been called using POST
+    const url = `http://localhost:3000/food`;
+    const req = controller.expectOne(url);
+    expect(req.request.method).toEqual('POST');
+    // flush mock data
+    req.flush(foodAddedItem);    
+  });
+
+  it('should update existing Food Item', () => {
+    service.editFoodItem(foodUpdateItem as FoodItem).subscribe((f) => {
+      expect(f).toBeTruthy();
+    });
+
+    // test whether the correct url has been called using PUT
+    const url = `http://localhost:3000/food/${foodUpdateItem.id}`;
+    const req = controller.expectOne(url);
+    expect(req.request.method).toEqual('PUT');
+    // flush mock data
+    req.flush(foodUpdatedItem);    
+  });
+
+  it('should delete existing Food Item', () => {
+    service.deleteFoodItem(foodDeleteItem.id as number).subscribe((f) => {
+      expect(f).toBeTruthy();
+    });
+
+    // test whether the correct url has been called using PUT
+    const url = `http://localhost:3000/food/${foodDeleteItem.id}`;
+    const req = controller.expectOne(url);
+    expect(req.request.method).toEqual('DELETE');
+    // flush mock data
+    req.flush({});    
+  });
 });
