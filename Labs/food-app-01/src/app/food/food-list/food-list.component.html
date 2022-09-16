@@ -35,10 +35,12 @@
     <!-- Delete Column -->
     <ng-container matColumnDef="deleteFoodItem">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element">
-        <a (click)="deleteFoodItem(element)">
-          <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
-        </a>
+      <td mat-cell *matCellDef="let element" class="icon-cell">
+        <button mat-mini-fab color="warn">
+          <a (click)="deleteFoodItem(element)">
+            <mat-icon matTooltip="Delete">delete</mat-icon>
+          </a>
+        </button>
       </td>
     </ng-container>
 
@@ -46,13 +48,16 @@
     <ng-container matColumnDef="editFoodItem">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element" class="icon-cell">
-        <a (click)="selectFoodItem(element)">
-          <mat-icon class="mat-18" matTooltip="Select">edit</mat-icon>
-        </a>
+        <button mat-mini-fab color="primary">
+          <a (click)="selectFoodItem(element)">
+            <mat-icon matTooltip="Select">edit</mat-icon>
+          </a>
+        </button>
+        
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectFoodItem(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </mat-card>
